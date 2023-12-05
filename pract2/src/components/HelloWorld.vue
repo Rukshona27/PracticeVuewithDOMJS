@@ -1,8 +1,8 @@
 
 <template>
   <div class="hello">
-    <p v-if="!visibleTrue">text true</p>
-    <p v-if="visibleFalse">text false</p>
+    <button v-on:click="toggle">toggle</button>
+    <p v-if="visible">text</p>
   </div>
 </template>
 
@@ -10,11 +10,13 @@
   export default{
       data(){
         return{
-          visibleTrue: true,
-          visibleFalse: true,
+          visible:true,
         };
       },
       methods:{
+        toggle:function(){
+            this.visible = !this.visible;
+        }
       }
   };
 </script>
