@@ -1,19 +1,21 @@
 
 <template>
   <div class="hello">
-    <button @click="counter+=1">+1</button>
-    <p>button click {{ counter }}</p>
+    <p v-if="!visibleTrue">text true</p>
+    <p v-if="visibleFalse">text false</p>
   </div>
 </template>
-
 
 <script>
   export default{
       data(){
         return{
-         counter: 0,
+          visibleTrue: true,
+          visibleFalse: true,
         };
       },
+      methods:{
+      }
   };
 </script>
 <style scoped>
