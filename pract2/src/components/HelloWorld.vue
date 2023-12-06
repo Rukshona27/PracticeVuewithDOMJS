@@ -1,14 +1,10 @@
 
 <template>
-  <div class="hello">
-    <p v-if="day == '1'">today monday</p>
-    <p v-if="day == '2'">today tuesday</p>
-    <p v-if="day == '3'"> today wensday</p>
-    <p v-if="day == '4'">today thursday</p>
-    <p v-if="day == '5'">today friday</p>
-    <p v-if="day == '6'">today saturday</p>
-    <p v-if="day == '0'">today sunday</p>
-    
+  <div>
+    <p v-if="age<18">подросток</p>
+    <p v-else-if="age==19 || age<=25">молодой человек</p>
+    <p v-else-if="age>=26">мужчина</p>
+    <p v-else>error</p>
   </div>
 </template>
 
@@ -16,8 +12,7 @@
   export default{
       data(){
         return{
-          day:(new Date()).getDay(),
-          
+          age:15,
         };
       },
       methods:{
