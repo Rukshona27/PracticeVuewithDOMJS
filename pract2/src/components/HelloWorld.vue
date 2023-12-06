@@ -1,4 +1,5 @@
 <template>
+  <p class="div" v-for="num in 10">{{ num }}</p>
   <table>
     <template v-for="prod in products">
       <tr class="div">
