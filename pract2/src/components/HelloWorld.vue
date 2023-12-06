@@ -1,27 +1,48 @@
-
 <template>
-  <div>
-    <p v-if="age<18">подросток</p>
-    <p v-else-if="age==19 || age<=25">молодой человек</p>
-    <p v-else-if="age>=26">мужчина</p>
-    <p v-else>error</p>
-  </div>
+  <table>
+    <template v-for="prod in products">
+      <tr class="div">
+        <td>{{ prod.name }}</td>
+        <td>-</td>
+        <td>{{ prod.price }}</td>
+        <td>-</td>
+        <td>{{ prod.quantity }}</td>
+      </tr>
+    </template>
+  </table>
 </template>
 
 <script>
   export default{
-      data(){
-        return{
-          age:15,
-        };
-      },
-      methods:{
-        
-      }
+    data() {
+	  return {
+		products: [
+			{
+				name: 'product1',
+				price: 100,
+				quantity: 5
+			},
+			{
+				name: 'product2',
+				price: 200,
+				quantity: 4
+			},
+			{
+				name: 'product3',
+				price: 300,
+				quantity: 3
+			},
+		]
+	}
+}
+,
+    methods:{
+
+    }
   };
 </script>
 <style scoped>
-.hello{
-  font-size: 6em;
+.div{
+  font-size: 5em;
 }
 </style>
