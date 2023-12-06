@@ -1,8 +1,14 @@
 
 <template>
   <div class="hello">
-    <button v-on:click="toggle">toggle</button>
-    <p v-if="visible">text</p>
+    <p v-if="day == '1'">today monday</p>
+    <p v-if="day == '2'">today tuesday</p>
+    <p v-if="day == '3'"> today wensday</p>
+    <p v-if="day == '4'">today thursday</p>
+    <p v-if="day == '5'">today friday</p>
+    <p v-if="day == '6'">today saturday</p>
+    <p v-if="day == '0'">today sunday</p>
+    
   </div>
 </template>
 
@@ -10,18 +16,17 @@
   export default{
       data(){
         return{
-          visible:true,
+          day:(new Date()).getDay(),
+          
         };
       },
       methods:{
-        toggle:function(){
-            this.visible = !this.visible;
-        }
+        
       }
   };
 </script>
 <style scoped>
 .hello{
-  font-size: 3em;
+  font-size: 6em;
 }
 </style>
