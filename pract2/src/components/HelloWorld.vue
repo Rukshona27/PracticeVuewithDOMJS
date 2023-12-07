@@ -1,49 +1,45 @@
+
+
 <template>
-  <p class="div" v-for="num in 10">{{ num }}</p>
-  <table>
-    <template v-for="prod in products">
-      <tr class="div">
-        <td>{{ prod.name }}</td>
-        <td>-</td>
-        <td>{{ prod.price }}</td>
-        <td>-</td>
-        <td>{{ prod.quantity }}</td>
-      </tr>
-    </template>
-  </table>
+	<div class="aa">
+		<input v-model="num">
+	<input  v-model="num2">
+	<input  v-model="num3">
+	<p>{{ res}}</p>
+	<button @click="resBtn">btn</button>
+	</div>
 </template>
+
 
 <script>
   export default{
     data() {
-	  return {
-		products: [
-			{
-				name: 'product1',
-				price: 100,
-				quantity: 5
-			},
-			{
-				name: 'product2',
-				price: 200,
-				quantity: 4
-			},
-			{
-				name: 'product3',
-				price: 300,
-				quantity: 3
-			},
-		]
+	return{
+		num:0,
+		num2:0,
+		num3:0,
+		arr:[],
+	}
+	},
+	methods:{
+		resBtn:function(){
+			let i = 0;
+			this.arr = (this.num).split('-')
+			while (i<this.arr.length) {
+				this.num = this.arr[i];
+				i++;
+				this.num2 = this.arr[i];
+				i++;
+				this.num3 = this.arr[i];
+				i++;
+			}
+		}
 	}
 }
-,
-    methods:{
-
-    }
-  };
 </script>
-<style scoped>
-.div{
-  font-size: 5em;
-}
+<style>
+	.aa{
+		font-size: 2em;
+	}
 </style>
+
