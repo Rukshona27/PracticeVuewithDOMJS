@@ -4,31 +4,37 @@ import first from './components/firstComponent.vue';
   export default {
     data() {
 	  return {
-      arr:[
+      arr1:[
         {id:1, name:'dog', age: 7, quantity: 2},
         {id:2, name:'rabbit', age: 4, quantity: 4},
         {id:3, name:'cat', age: 6, quantity: 1},
       ]
 	}
 },methods:{
-  remove(id){
-    this.arr = this.arr.filter((arr0)=>{
-      return arr0.id !== id
-    });
-  }
+    change(id, name, age, quantity){
+      this.arr1 = this.arr1.map((arr)=>{
+        if(arr.id === id){
+          arr.name = name;
+          arr.age = age;
+          arr.quantity = quantity;
+        };
+        return arr;
+      })
+    }
 },
 components: { first}
 }
 </script>
 
 <template>
-  <first v-for="arr0 in arr"
-    :id="arr0.id"
-    :name="arr0.name"
-    :quantity="arr0.quantity"
-    :age="arr0.age"
-    :key="arr0.id"
-    @remove="remove"/>
+  <first v-for="arr in arr1"
+    :id="arr.id"
+    :name="arr.name"
+    :quantity="arr.quantity"
+    :age="arr.age"
+    :key="arr.id"
+    @change="change"
+    />
 </template>
 
 <style scoped>
